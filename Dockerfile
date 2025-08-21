@@ -12,5 +12,4 @@ ENV FLASK_ENV=production
 ENV PYTHONUNBUFFERED=1
 
 EXPOSE 8080
-CMD ["sh", "-c", "gunicorn -w 2 -b 0.0.0.0:${PORT:-8080} app:create_app()"]
-
+CMD ["sh", "-c", "gunicorn -w ${WEB_CONCURRENCY:-2} -t 120 -b 0.0.0.0:${PORT:-8080} 'app:create_app()'"]

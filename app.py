@@ -1,6 +1,5 @@
 import os
 from flask import Flask, render_template
-import flask_sqlalchemy
 from flask_migrate import Migrate
 from dotenv import load_dotenv
 from flask_smorest import Api
