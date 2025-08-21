@@ -3,6 +3,7 @@ flask-smorest
 flask-cors
 Flask-JWT-Extended
 Flask-Migrate
+Flask-SQLAlchemy
 SQLAlchemy
 psycopg[binary]
 passlib
