@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Team Notes – Cutesy Boards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Team Notes</h1>
+      <nav>
+        <button id="loginBtn" class="btn primary">Login</button>
+        <button id="logoutBtn" class="btn" style="display:none">Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <h2>Welcome to your cutesy team space</h2>
+      <p>Every user gets a sweet little window. Click a note title to pop it open!</p>
+      <button id="createWindowBtn" class="btn primary">Create your window</button>
+    </section>
+
+    <section id="boards" class="boards"></section>
+  </main>
+
+  <!-- Login/Register Modal with tabs -->
+  <div id="loginModal" class="modal hidden" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close" id="closeLogin">×</button>
+      <div class="tabs" style="display:flex; gap:.5rem; margin-bottom:.75rem;">
+        <button id="tabLogin" class="btn">Log in</button>
+        <button id="tabRegister" class="btn primary">Register</button>
+      </div>
+
+      <section id="loginView">
+        <h3>Login</h3>
+        <form id="loginForm">
+          <label>
+            Username
+            <input type="text" name="username" required />
+          </label>
+          <label>
+            Password
+            <input type="password" name="password" required />
+          </label>
+          <button type="submit" class="btn primary">Login</button>
+        </form>
+      </section>
+
+      <section id="registerView" style="display:none;">
+        <h3>Register</h3>
+        <form id="registerForm" class="stacked">
+          <label>
+            Username
+            <input type="text" name="username" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            Password
+            <input type="password" name="password" required />
+          </label>
+          <button type="submit" class="btn">Register</button>
+        </form>
+      </section>
+    </div>
+  </div>
+
+  <!-- Note Modal -->
+  <div id="noteModal" class="modal hidden" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close" id="closeNote">×</button>
+      <h3 id="noteTitle">Note</h3>
+      <p id="noteContent" class="note-content"></p>
+    </div>
+  </div>
+
+  <script>
+    window.APP_CONFIG = {
+      apiBase: '' // same-origin by default; set e.g. 'https://api.example.com' for prod
+    };
+  </script>
+  <script src="/static/js/app.js" defer></script>
+</body>
+</html>
